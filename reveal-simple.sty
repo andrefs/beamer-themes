@@ -1,0 +1,117 @@
+\usepackage{fontspec}
+\usepackage{xunicode} %Unicode extras!
+\usepackage{xltxtra}  %Fixes
+\usepackage[final,expansion=true,protrusion=true,spacing=true,kerning=true]{microtype}
+\usepackage[utf8]{inputenc}
+\usepackage{courier}
+\usepackage{alltt}
+\usepackage{amsmath}
+\usepackage{marvosym}
+\usepackage{animate}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Create PDF with slides and notes side-by-side for presenting   %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% % http://www.phillme.de/cms/node/14
+% % http://zeekish.wordpress.com/2011/03/18/latex-beamer-presentation-on-dual-display-laptop-projector/
+% 
+% \usepackage{pgfpages}
+% \setbeameroption{show notes}
+% \setbeameroption{show notes on second screen=right}
+% \pgfpagesuselayout{two screens with optional second} %pgfpages
+% 
+% % Patch because pdfpages has a bug which makes it not work with
+% % xe(la)tex
+% \renewcommand\pgfsetupphysicalpagesizes{%
+%     \pdfpagewidth\pgfphysicalwidth\pdfpageheight\pgfphysicalheight%
+% }
+
+\mode<presentation>
+
+\usetheme{default}
+%\setbeamercovered{transparent}
+\setbeamertemplate{navigation symbols}{} % deactivate navigation symbols
+\useinnertheme[shadow]{rounded} % make blocks rounded
+\setbeamertemplate{itemize items}{\textbullet} % use textbullets for itemize
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{img/plugins}} % use image as background
+
+%%%%%%%%%%%
+% Colors  %
+%%%%%%%%%%%
+
+\setbeamercolor{structure}{fg=black}
+\setbeamercolor{block title}{fg=white,bg=purple}
+\setbeamercolor{alerted text}{fg=purple} 
+
+%%%%%%%%%
+% Fonts %
+%%%%%%%%%
+
+\defaultfontfeatures{Mapping=tex-text} 
+\setmainfont{Lato}
+\setmonofont[Scale=0.86]{DejaVu Sans Mono Bold}
+%\setsansfont[Scale=0.86]{Andale Mono}
+\beamertemplatenavigationsymbolsempty
+
+\newfontfamily\newscycle[]{News Cycle}
+\setbeamerfont{title}{family=\newscycle,size={\fontsize{60pt}{60pt}}}
+\setbeamerfont{author}{family=\newscycle,size={\fontsize{14pt}{14pt}}}
+\setbeamerfont{institute}{family=\newscycle,size={\fontsize{23pt}{23pt}}}
+\setbeamerfont{frametitle}{family=\newscycle,size={\fontsize{30pt}{30pt}}}
+
+
+%%%%%%%%%%%%%%
+% Title page %
+%%%%%%%%%%%%%%
+
+\defbeamertemplate*{title page}{customized}[1][]
+{
+	\begin{centering}
+	\usebeamerfont{title} \inserttitle\par
+	%{\fontsize{60pt}{60pt}\selectfont \inserttitle\par}
+	\bigskip
+	%\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+	\pgfimage[width=.6\textwidth]{img/dzil}\par
+	\bigskip
+	\usebeamerfont{author}\insertauthor\par
+	\medskip
+	\usebeamerfont{institute}\expandafter\uppercase\expandafter{\insertinstitute}\par
+	%\usebeamerfont{date}\insertdate\par
+	%\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
+	\end{centering}
+}
+
+
+%%%%%%%%%%%%%%%
+% Frame title %
+%%%%%%%%%%%%%%%
+
+\defbeamertemplate*{frametitle}{customized}[1][]
+{
+	\begin{centering}
+	\medskip
+	%\usebeamerfont{frametitle}\expandafter\uppercase\expandafter{\insertframetitle}\par
+	\usebeamerfont{frametitle}\insertframetitle\par
+	\end{centering}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Listings                                               %
+% uses minted (needs python-pygments), synhi is better!  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{minted}
+
+\fvset{
+	%linenos,
+	numbersep=5pt,
+	%gobble=2,
+	fontsize=\footnotesize,
+	frame=none,
+	baselinestretch=0.8,
+	framesep=2mm,
+}
+
