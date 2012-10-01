@@ -2,7 +2,7 @@ S=slides
 
 all: $S.pdf
 
-$S.pdf: *.tex reveal-default.sty makefile
+$S.pdf: *.tex reveal-sky.sty makefile
 	latexmk -bibtex -enc -etex -e '$$latex=q/xelatex %O -shell-escape %S/' $S.tex
 
 clean:

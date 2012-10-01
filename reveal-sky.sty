@@ -42,9 +42,9 @@
 % Colors  %
 %%%%%%%%%%%
 
-\definecolor{bgin}{RGB}{85,90,95}
-\definecolor{bgout}{RGB}{28,30,32}
-\definecolor{textcolor}{HTML}{EEEEEE}
+\definecolor{bgin}{HTML}{F7FBFC}
+\definecolor{bgout}{HTML}{ADD9E4}
+\definecolor{textcolor}{HTML}{333333}
 
 \setbeamercolor{structure}{fg=textcolor}
 \setbeamercolor{normal text}{fg=textcolor}
@@ -52,7 +52,7 @@
 \setbeamercolor{alerted text}{fg=purple} 
 
 
-\definecolor{links}{HTML}{13DAEC}
+\definecolor{links}{HTML}{3b759e}
 \hypersetup{colorlinks,linkcolor=links,urlcolor=links}
 
 %%%%%%%%%%%%%%
@@ -81,12 +81,12 @@
 %\setsansfont[Scale=0.86]{Andale Mono}
 \beamertemplatenavigationsymbolsempty
 
-\newfontfamily\leaguegothic[]{League Gothic}
-\setbeamerfont{title}{family=\leaguegothic,size={\fontsize{60pt}{60pt}}}
-\setbeamerfont{subtitle}{family=\leaguegothic,size={\fontsize{24pt}{24pt}}}
-\setbeamerfont{author}{family=\leaguegothic,size={\fontsize{14pt}{14pt}}}
-\setbeamerfont{institute}{family=\leaguegothic,size={\fontsize{23pt}{23pt}}}
-\setbeamerfont{frametitle}{family=\leaguegothic,size={\fontsize{30pt}{30pt}}}
+\newfontfamily\quicksand[]{Quicksand}
+\setbeamerfont{title}{family=\quicksand,size={\fontsize{60pt}{60pt}}}
+\setbeamerfont{subtitle}{family=\quicksand,size={\fontsize{24pt}{24pt}}}
+\setbeamerfont{author}{family=\quicksand,size={\fontsize{14pt}{14pt}}}
+\setbeamerfont{institute}{family=\quicksand,size={\fontsize{23pt}{23pt}}}
+\setbeamerfont{frametitle}{family=\quicksand,size={\fontsize{30pt}{30pt}}}
 
 
 %%%%%%%%%%%%%%
@@ -102,29 +102,7 @@
 	\definecolor{grey5}{HTML}{AAAAAA}
 
 	\begin{centering}
-  	\begin{tikzpicture}[remember picture,overlay]
-	\node[color=grey5] at (0,-0.075) {
-		\usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}
-	};
-	\node[color=grey4] at (0,-0.060) {
-		\usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}
-	};
-	\node[color=grey3] at (0,-0.045) {
-		\usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}
-	};
-	\node[color=grey2] at (0,-0.030) {
-	     \usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}
-	};
-	\node[color=grey1] at (0,-0.015) {
-	    \usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}
-	};
-	\node at (0,0) {
-	    \usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}
-	};
-  	\end{tikzpicture}
-	\vspace{2em}
-	
-	%\usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}\par
+	\usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}\par
 	\usebeamerfont{subtitle}\expandafter\uppercase\expandafter{\insertsubtitle}\par
 	%{\fontsize{60pt}{60pt}\selectfont \inserttitle\par}
 	\bigskip
