@@ -8,6 +8,7 @@
 \usepackage{amsmath}
 \usepackage{marvosym}
 \usepackage{animate}
+\usepackage{tikz}
 
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,9 +42,34 @@
 % Colors  %
 %%%%%%%%%%%
 
-\setbeamercolor{structure}{fg=black}
+\definecolor{bgin}{HTML}{F7FBFC}
+\definecolor{bgout}{HTML}{ADD9E4}
+\definecolor{textcolor}{HTML}{000000}
+
+\setbeamercolor{structure}{fg=textcolor}
+\setbeamercolor{normal text}{fg=textcolor}
 \setbeamercolor{block title}{fg=white,bg=purple}
 \setbeamercolor{alerted text}{fg=purple} 
+
+
+\definecolor{links}{HTML}{00008b}
+\hypersetup{colorlinks,linkcolor=links,urlcolor=links}
+
+%%%%%%%%%%%%%%
+% Background %
+%%%%%%%%%%%%%%
+
+%%% gradient
+% \setbeamertemplate{background canvas}[vertical shading][bottom=red!30, top=white]
+%%% image
+% \usebackgroundtemplate{\pgfimage[width=\paperwidth]{img/make}
+
+
+% \usebackgroundtemplate{
+%   \begin{tikzpicture}[remember picture,overlay]
+%     \node [rectangle, shading=radial, inner color=bgin, outer color=bgout, anchor=north, minimum width=\paperwidth, minimum height=\paperheight] (box) at (current page.north){};
+%   \end{tikzpicture}
+% }
 
 %%%%%%%%%
 % Fonts %
@@ -57,6 +83,7 @@
 
 \newfontfamily\newscycle[]{News Cycle}
 \setbeamerfont{title}{family=\newscycle,size={\fontsize{60pt}{60pt}}}
+\setbeamerfont{subtitle}{family=\newscycle,size={\fontsize{24pt}{24pt}}}
 \setbeamerfont{author}{family=\newscycle,size={\fontsize{14pt}{14pt}}}
 \setbeamerfont{institute}{family=\newscycle,size={\fontsize{23pt}{23pt}}}
 \setbeamerfont{frametitle}{family=\newscycle,size={\fontsize{30pt}{30pt}}}
@@ -68,12 +95,19 @@
 
 \defbeamertemplate*{title page}{customized}[1][]
 {
+	\definecolor{grey1}{HTML}{CCCCCC}
+	\definecolor{grey2}{HTML}{C9C9C9}
+	\definecolor{grey3}{HTML}{BBBBBB}
+	\definecolor{grey4}{HTML}{B9B9B9}
+	\definecolor{grey5}{HTML}{AAAAAA}
+
 	\begin{centering}
-	\usebeamerfont{title} \inserttitle\par
+	\usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}\par
+	\usebeamerfont{subtitle}\expandafter\uppercase\expandafter{\insertsubtitle}\par
 	%{\fontsize{60pt}{60pt}\selectfont \inserttitle\par}
 	\bigskip
 	%\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
-	\pgfimage[width=.6\textwidth]{img/dzil}\par
+	%\pgfimage[width=.6\textwidth]{img/dzil}\par
 	\bigskip
 	\usebeamerfont{author}\insertauthor\par
 	\medskip
@@ -93,10 +127,28 @@
 	\begin{centering}
 	\medskip
 	%\usebeamerfont{frametitle}\expandafter\uppercase\expandafter{\insertframetitle}\par
-	\usebeamerfont{frametitle}\insertframetitle\par
+	\usebeamerfont{frametitle}\expandafter\uppercase\expandafter{\insertframetitle}\par
 	\end{centering}
 }
 
+%%%%%%%%%
+% Quote %
+%%%%%%%%%
+
+\defbeamertemplate*{quote begin}{customized}
+{\beamercolorbox[vmode]{quote}}
+
+\defbeamertemplate*{quote end}{customized}
+{\endbeamercolorbox}
+
+%%%%%%%%%%%%%%%%
+% Enumerations %
+%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{enumerate item}{\insertenumlabel.}
+\setbeamertemplate{enumerate subitem}{\insertenumlabel.\insertsubenumlabel}
+\setbeamertemplate{enumerate subsubitem}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
+\setbeamertemplate{enumerate mini template}{\insertenumlabel}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Listings                                               %
