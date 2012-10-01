@@ -1,0 +1,191 @@
+\usepackage{fontspec}
+\usepackage{xunicode} %Unicode extras!
+\usepackage{xltxtra}  %Fixes
+\usepackage[final,expansion=true,protrusion=true,spacing=true,kerning=true]{microtype}
+\usepackage[utf8]{inputenc}
+\usepackage{courier}
+\usepackage{alltt}
+\usepackage{amsmath}
+\usepackage{marvosym}
+\usepackage{animate}
+\usepackage{tikz}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % Create PDF with slides and notes side-by-side for presenting   %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+% % http://www.phillme.de/cms/node/14
+% % http://zeekish.wordpress.com/2011/03/18/latex-beamer-presentation-on-dual-display-laptop-projector/
+% 
+% \usepackage{pgfpages}
+% \setbeameroption{show notes}
+% \setbeameroption{show notes on second screen=right}
+% \pgfpagesuselayout{two screens with optional second} %pgfpages
+% 
+% % Patch because pdfpages has a bug which makes it not work with
+% % xe(la)tex
+% \renewcommand\pgfsetupphysicalpagesizes{%
+%     \pdfpagewidth\pgfphysicalwidth\pdfpageheight\pgfphysicalheight%
+% }
+
+\mode<presentation>
+
+\usetheme{default}
+%\setbeamercovered{transparent}
+\setbeamertemplate{navigation symbols}{} % deactivate navigation symbols
+\useinnertheme[shadow]{rounded} % make blocks rounded
+\setbeamertemplate{itemize items}{\textbullet} % use textbullets for itemize
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{img/plugins}} % use image as background
+
+%%%%%%%%%%%
+% Colors  %
+%%%%%%%%%%%
+
+\definecolor{bgin}{RGB}{85,90,95}
+\definecolor{bgout}{RGB}{28,30,32}
+\definecolor{textcolor}{HTML}{EEEEEE}
+
+\setbeamercolor{structure}{fg=textcolor}
+\setbeamercolor{normal text}{fg=textcolor}
+\setbeamercolor{block title}{fg=white,bg=purple}
+\setbeamercolor{alerted text}{fg=purple} 
+
+
+\definecolor{links}{HTML}{13DAEC}
+\hypersetup{colorlinks,linkcolor=links,urlcolor=links}
+
+%%%%%%%%%%%%%%
+% Background %
+%%%%%%%%%%%%%%
+
+%%% gradient
+% \setbeamertemplate{background canvas}[vertical shading][bottom=red!30, top=white]
+%%% image
+% \usebackgroundtemplate{\pgfimage[width=\paperwidth]{img/make}
+
+
+\usebackgroundtemplate{
+  \begin{tikzpicture}[remember picture,overlay]
+    \node [rectangle, shading=radial, inner color=bgin, outer color=bgout, anchor=north, minimum width=\paperwidth, minimum height=\paperheight] (box) at (current page.north){};
+  \end{tikzpicture}
+}
+
+%%%%%%%%%
+% Fonts %
+%%%%%%%%%
+
+\defaultfontfeatures{Mapping=tex-text} 
+\setmainfont{Lato}
+\setmonofont[Scale=0.86]{DejaVu Sans Mono Bold}
+%\setsansfont[Scale=0.86]{Andale Mono}
+\beamertemplatenavigationsymbolsempty
+
+\newfontfamily\leaguegothic[]{League Gothic}
+\setbeamerfont{title}{family=\leaguegothic,size={\fontsize{60pt}{60pt}}}
+\setbeamerfont{subtitle}{family=\leaguegothic,size={\fontsize{24pt}{24pt}}}
+\setbeamerfont{author}{family=\leaguegothic,size={\fontsize{14pt}{14pt}}}
+\setbeamerfont{institute}{family=\leaguegothic,size={\fontsize{23pt}{23pt}}}
+\setbeamerfont{frametitle}{family=\leaguegothic,size={\fontsize{30pt}{30pt}}}
+
+
+%%%%%%%%%%%%%%
+% Title page %
+%%%%%%%%%%%%%%
+
+\defbeamertemplate*{title page}{customized}[1][]
+{
+	\definecolor{grey1}{HTML}{CCCCCC}
+	\definecolor{grey2}{HTML}{C9C9C9}
+	\definecolor{grey3}{HTML}{BBBBBB}
+	\definecolor{grey4}{HTML}{B9B9B9}
+	\definecolor{grey5}{HTML}{AAAAAA}
+
+	\begin{centering}
+  	\begin{tikzpicture}[remember picture,overlay]
+	\node[color=grey5] at (0,-0.075) {
+		\usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}
+	};
+	\node[color=grey4] at (0,-0.060) {
+		\usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}
+	};
+	\node[color=grey3] at (0,-0.045) {
+		\usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}
+	};
+	\node[color=grey2] at (0,-0.030) {
+	     \usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}
+	};
+	\node[color=grey1] at (0,-0.015) {
+	    \usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}
+	};
+	\node at (0,0) {
+	    \usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}
+	};
+  	\end{tikzpicture}
+	\vspace{2em}
+	
+	%\usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}\par
+	\usebeamerfont{subtitle}\expandafter\uppercase\expandafter{\insertsubtitle}\par
+	%{\fontsize{60pt}{60pt}\selectfont \inserttitle\par}
+	\bigskip
+	%\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+	%\pgfimage[width=.6\textwidth]{img/dzil}\par
+	\bigskip
+	\usebeamerfont{author}\insertauthor\par
+	\medskip
+	\usebeamerfont{institute}\expandafter\uppercase\expandafter{\insertinstitute}\par
+	%\usebeamerfont{date}\insertdate\par
+	%\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic
+	\end{centering}
+}
+
+
+%%%%%%%%%%%%%%%
+% Frame title %
+%%%%%%%%%%%%%%%
+
+\defbeamertemplate*{frametitle}{customized}[1][]
+{
+	\begin{centering}
+	\medskip
+	%\usebeamerfont{frametitle}\expandafter\uppercase\expandafter{\insertframetitle}\par
+	\usebeamerfont{frametitle}\expandafter\uppercase\expandafter{\insertframetitle}\par
+	\end{centering}
+}
+
+%%%%%%%%%
+% Quote %
+%%%%%%%%%
+
+\defbeamertemplate*{quote begin}{customized}
+{\beamercolorbox[vmode]{quote}}
+
+\defbeamertemplate*{quote end}{customized}
+{\endbeamercolorbox}
+
+%%%%%%%%%%%%%%%%
+% Enumerations %
+%%%%%%%%%%%%%%%%
+
+\setbeamertemplate{enumerate item}{\insertenumlabel.}
+\setbeamertemplate{enumerate subitem}{\insertenumlabel.\insertsubenumlabel}
+\setbeamertemplate{enumerate subsubitem}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
+\setbeamertemplate{enumerate mini template}{\insertenumlabel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Listings                                               %
+% uses minted (needs python-pygments), synhi is better!  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{minted}
+
+\fvset{
+	%linenos,
+	numbersep=5pt,
+	%gobble=2,
+	fontsize=\footnotesize,
+	frame=none,
+	baselinestretch=0.8,
+	framesep=2mm,
+}
+
