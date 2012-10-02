@@ -67,7 +67,7 @@
 
 \usebackgroundtemplate{
   \begin{tikzpicture}[remember picture,overlay]
-    \node [rectangle, shading=radial, inner color=bgin, outer color=bgout, anchor=north, minimum width=\paperwidth, minimum height=\paperheight] (box) at (current page.north){};
+    \node [inner color=bgin, outer color=bgout, anchor=north, minimum width=\paperwidth, minimum height=\paperheight] (box) at (current page.north){};
   \end{tikzpicture}
 }
 
@@ -95,12 +95,6 @@
 
 \defbeamertemplate*{title page}{customized}[1][]
 {
-	\definecolor{grey1}{HTML}{CCCCCC}
-	\definecolor{grey2}{HTML}{C9C9C9}
-	\definecolor{grey3}{HTML}{BBBBBB}
-	\definecolor{grey4}{HTML}{B9B9B9}
-	\definecolor{grey5}{HTML}{AAAAAA}
-
 	\begin{centering}
 	\usebeamerfont{title}\expandafter\uppercase\expandafter{\inserttitle}\par
 	\usebeamerfont{subtitle}\expandafter\uppercase\expandafter{\insertsubtitle}\par
