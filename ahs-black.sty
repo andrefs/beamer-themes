@@ -44,7 +44,7 @@
 
 \definecolor{bgin}{HTML}{F7FBFC}
 \definecolor{bgout}{HTML}{ADD9E4}
-\definecolor{textcolor}{HTML}{333333}
+\definecolor{textcolor}{HTML}{FFFFFF}
 
 \setbeamercolor{structure}{fg=textcolor}
 \setbeamercolor{normal text}{fg=textcolor}
@@ -63,13 +63,15 @@
 % \setbeamertemplate{background canvas}[vertical shading][bottom=red!30, top=white]
 %%% image
 % \usebackgroundtemplate{\pgfimage[width=\paperwidth]{img/make}
+%%% single color
+\setbeamercolor{background canvas}{bg=black}
 
-
-\usebackgroundtemplate{
-  \begin{tikzpicture}[remember picture,overlay]
-    \node [inner color=bgin, outer color=bgout, anchor=north, minimum width=\paperwidth, minimum height=\paperheight] (box) at (current page.north){};
-  \end{tikzpicture}
-}
+%%% radial gradient
+% \usebackgroundtemplate{
+%   \begin{tikzpicture}[remember picture,overlay]
+%     \node [inner color=bgin, outer color=bgout, anchor=north, minimum width=\paperwidth, minimum height=\paperheight] (box) at (current page.north){};
+%   \end{tikzpicture}
+% }
 
 %%%%%%%%%
 % Fonts %
@@ -81,12 +83,12 @@
 %\setsansfont[Scale=0.86]{Andale Mono}
 \beamertemplatenavigationsymbolsempty
 
-\newfontfamily\quicksand[]{Quicksand}
-\setbeamerfont{title}{family=\quicksand,size={\fontsize{60pt}{60pt}}}
-\setbeamerfont{subtitle}{family=\quicksand,size={\fontsize{24pt}{24pt}}}
-\setbeamerfont{author}{family=\quicksand,size={\fontsize{14pt}{14pt}}}
-\setbeamerfont{institute}{family=\quicksand,size={\fontsize{23pt}{23pt}}}
-\setbeamerfont{frametitle}{family=\quicksand,size={\fontsize{30pt}{30pt}}}
+\newfontfamily\rmitc[]{RennieMackintoshITC}
+\setbeamerfont{title}{family=\rmitc,size={\fontsize{60pt}{60pt}}}
+\setbeamerfont{subtitle}{family=\rmitc,size={\fontsize{24pt}{24pt}}}
+\setbeamerfont{author}{family=\rmitc,size={\fontsize{14pt}{14pt}}}
+\setbeamerfont{institute}{family=\rmitc,size={\fontsize{23pt}{23pt}}}
+\setbeamerfont{frametitle}{family=\rmitc,size={\fontsize{30pt}{30pt}}}
 
 
 %%%%%%%%%%%%%%
