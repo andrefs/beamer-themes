@@ -2,7 +2,7 @@ S=slides
 
 all: $S.pdf
 
-$S.pdf: *.tex ahs-black.sty makefile
+$S.pdf: *.tex apple-keynote.sty makefile
 	latexmk -bibtex -enc -etex -e '$$latex=q/xelatex %O -shell-escape %S/' $S.tex
 
 clean:

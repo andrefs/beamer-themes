@@ -44,23 +44,21 @@
 
 \definecolor{bgin}{HTML}{F7FBFC}
 \definecolor{bgout}{HTML}{ADD9E4}
-\definecolor{textcolor}{HTML}{FFFFFF}
+\definecolor{bottomcolour}{rgb}{0.32,0.3,0.38}
+\definecolor{middlecolour}{rgb}{0.08,0.08,0.16}
 
-\setbeamercolor{structure}{fg=textcolor}
-\setbeamercolor{normal text}{fg=textcolor}
+\setbeamercolor{structure}{fg=white}
+\setbeamercolor{normal text}{bg=black, fg=white}
 % \setbeamercolor{block title}{fg=white,bg=purple}
 % \setbeamercolor{alerted text}{fg=purple} 
 
-
-\definecolor{links}{HTML}{3b759e}
-\hypersetup{colorlinks,linkcolor=links,urlcolor=links}
 
 %%%%%%%%%%%%%%
 % Background %
 %%%%%%%%%%%%%%
 
 %%% gradient
-% \setbeamertemplate{background canvas}[vertical shading][bottom=red!30, top=white]
+\setbeamertemplate{background canvas}[vertical shading][bottom=bottomcolour, middle=middlecolour, top=black]
 %%% image
 % \usebackgroundtemplate{\pgfimage[width=\paperwidth]{img/make}
 %%% single color
@@ -78,17 +76,17 @@
 %%%%%%%%%
 
 \defaultfontfeatures{Mapping=tex-text} 
-\setmainfont{Open Sans}
+\setmainfont{Myriad Apple Text}
 \setmonofont[Scale=0.86]{DejaVu Sans Mono Bold}
 %\setsansfont[Scale=0.86]{Andale Mono}
 \beamertemplatenavigationsymbolsempty
 
-\newfontfamily\rmitc[]{RennieMackintoshITC}
-\setbeamerfont{title}{family=\rmitc,size={\fontsize{60pt}{60pt}}}
-\setbeamerfont{subtitle}{family=\rmitc,size={\fontsize{24pt}{24pt}}}
-\setbeamerfont{author}{family=\rmitc,size={\fontsize{14pt}{14pt}}}
-\setbeamerfont{institute}{family=\rmitc,size={\fontsize{23pt}{23pt}}}
-\setbeamerfont{frametitle}{family=\rmitc,size={\fontsize{30pt}{30pt}}}
+\newfontfamily\myriad[]{Myriad Pro}
+\setbeamerfont{title}{family=\myriad,size={\fontsize{60pt}{60pt}}}
+\setbeamerfont{subtitle}{family=\myriad,size={\fontsize{24pt}{24pt}}}
+\setbeamerfont{author}{family=\myriad,size={\fontsize{14pt}{14pt}}}
+\setbeamerfont{institute}{family=\myriad,size={\fontsize{23pt}{23pt}}}
+\setbeamerfont{frametitle}{family=\myriad,size={\fontsize{30pt}{30pt}}}
 
 
 %%%%%%%%%%%%%%
@@ -123,7 +121,7 @@
 	\begin{centering}
 	\medskip
 	%\usebeamerfont{frametitle}\expandafter\uppercase\expandafter{\insertframetitle}\par
-	\usebeamerfont{frametitle}\expandafter\uppercase\expandafter{\insertframetitle}\par
+	\usebeamerfont{frametitle}\expandafter{\insertframetitle}\par
 	\end{centering}
 }
 
@@ -140,6 +138,8 @@
 %%%%%%%%%%%%%%%%
 % Enumerations %
 %%%%%%%%%%%%%%%%
+
+\setbeamertemplate{itemize item}{\lower3pt\hbox{\Large\textbullet}}
 
 \setbeamertemplate{enumerate item}{\insertenumlabel.}
 \setbeamertemplate{enumerate subitem}{\insertenumlabel.\insertsubenumlabel}
